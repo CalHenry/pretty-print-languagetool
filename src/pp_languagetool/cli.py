@@ -3,7 +3,7 @@ from typing import Optional
 import typer
 from rich.console import Console
 
-from .helpers import pretty_print_languagetool_report, run_languagetool
+from pp_languagetool.helpers import pretty_print_languagetool_report, run_languagetool
 
 console = Console()
 app = typer.Typer()
