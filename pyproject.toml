@@ -1,9 +1,16 @@
 [project]
-name = "languagetool-tui"
+name = "languagetool-pp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Pretty print languagetool cli output into a table using rich"
 readme = "README.md"
+authors = [
+  {name = "Calixte Henry", email = "131826512+CalHenry@users.noreply.github.com"},
+
 requires-python = ">=3.12"
 dependencies = [
-    "textual>=6.11.0",
+    "rich>=14.2.0",
+    "typer>=0.20.1",
 ]
+
+[project.scripts]
+pp-languagetool = "pp_languagetool.cli:app"
