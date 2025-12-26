@@ -3,8 +3,7 @@ name = "languagetool-pp"
 version = "0.1.0"
 description = "Pretty print languagetool cli output into a table using rich"
 readme = "README.md"
-authors = [
-  {name = "Calixte Henry", email = "131826512+CalHenry@users.noreply.github.com"},
+authors = [{name = "Calixte Henry", email = "131826512+CalHenry@users.noreply.github.com"}]
 
 requires-python = ">=3.12"
 dependencies = [
@@ -14,3 +13,7 @@ dependencies = [
 
 [project.scripts]
 pp-languagetool = "pp_languagetool.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
