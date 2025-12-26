@@ -1,3 +1,4 @@
+import subprocess
 from typing import Optional
 
 import typer
@@ -13,11 +14,14 @@ app = typer.Typer()
 @app.command()
 def check(
     language: str = typer.Option(
-        "en-US", "-l", "--language", help="Language code (e.g., en-US, de-DE, fr)"
+        "en-US", "-l", "--language", help="Language code (e.g., en-GB, de-DE, fr)"
     ),
     text: Optional[str] = typer.Option(None, "-t", "--text", help="Text to check"),
     file: Optional[typer.FileText] = typer.Option(
         None, "-f", "--file", help="File to check"
+    ),
+    list_languages: bool = typer.Option(
+        False, "--list", is_eager=True, help="print all available languages and exit"
     ),
 ):
     """
@@ -27,6 +31,15 @@ def check(
         text: cli argument or stdin text
         file: plain text file. LanguageTool don't read XML, docx, tex, HTML or other non plain text formats
     """
+    # just list the available language - mimics 'languagetool --list'
+    if list_languages:
+        result = subprocess.run(
+            ["languagetool", "--list"],
+            capture_output=True,
+            text=True,
+        )
+        console.print(result.stdout)
+        raise typer.Exit(0)
 
     # Get text from argument or stdin
     if text:
