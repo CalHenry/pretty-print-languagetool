@@ -1,5 +1,5 @@
 [project]
-name = "languagetool-pp"
+name = "pp-languagetool"
 version = "0.1.0"
 description = "Pretty print languagetool cli output into a table using rich"
 readme = "README.md"
@@ -13,9 +13,6 @@ dependencies = [
 
 [project.scripts]
 pp-languagetool = "pp_languagetool.cli:app"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src"]
 
 [build-system]
 requires = ["hatchling"]

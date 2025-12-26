@@ -12,7 +12,14 @@ console = Console()
 
 # run languagetool as a subprocess
 def run_languagetool(text: str, language: str) -> dict:
-    """Run languagetool-commandline and return parsed output with line/col info."""
+    """
+    Run languagetool cli and return json output
+    Compute the line and col position of the error
+    args:
+        text: text to be analysed by languagetool
+        language: language of the text
+    returns:
+    """
     try:
         # Build offset mapping before sending to languagetool
         offset_map = build_offset_to_line_col_map(text)
