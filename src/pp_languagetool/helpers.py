@@ -2,6 +2,7 @@ import json
 import subprocess
 
 import typer
+from docx import Document
 from rich import box
 from rich.console import Console
 from rich.panel import Panel
@@ -90,17 +91,23 @@ def build_offset_to_line_col_map(text: str) -> dict:
 def pretty_print_languagetool_report(content):
     # Header
     console.print(
-        Panel.fit("[bold cyan]LanguageTool Report[/bold cyan]", border_style="cyan")
+        Panel.fit(
+            "[bold cyan]LanguageTool Report[/bold cyan]",
+            border_style="cyan",
+        )
     )
     # Summary stats
     total_matches = len(content["matches"])
     console.print(f"\n[bold]Total issues found:[/bold] {total_matches}\n")
     # Issues table
     table = Table(
-        show_header=True, header_style="bold magenta", leading=1, box=box.ROUNDED
+        show_header=True,
+        header_style="bold magenta",
+        leading=1,
+        box=box.ROUNDED,
     )
     table.add_column(
-        "Line:Col", style="dim", width=10
+        "Line:Col", style="dim", max_width=8
     )  # Made slightly wider for "Line:Col" format
     table.add_column("Type", style="cyan")
     table.add_column("Message", style="yellow")
@@ -161,3 +168,15 @@ def pretty_print_languagetool_report(content):
 
     # Display table
     console.print(table)
+
+
+def docx_to_text(docx_path):
+    """
+    Convert .docx files (Windows Word 2007+) to plain text
+    no support for tables
+    """
+    doc = Document(docx_path)
+    full_text = []
+    for paragraph in doc.paragraphs:
+        full_text.append(paragraph.text)
+    return "\n".join(full_text)

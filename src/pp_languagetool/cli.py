@@ -1,10 +1,15 @@
 import subprocess
+from pathlib import Path
 from typing import Optional
 
 import typer
 from rich.console import Console
 
-from .helpers import pretty_print_languagetool_report, run_languagetool
+from .helpers import (
+    docx_to_text,
+    pretty_print_languagetool_report,
+    run_languagetool,
+)
 
 console = Console()
 app = typer.Typer()
@@ -14,12 +19,10 @@ app = typer.Typer()
 @app.command()
 def check(
     language: str = typer.Option(
-        "en-US", "-l", "--language", help="Language code (e.g., en-GB, de-DE, fr)"
+        "en-US", "-l", "--language", help="Language code (e.g., en-GB, fr)"
     ),
     text: Optional[str] = typer.Option(None, "-t", "--text", help="Text to check"),
-    file: Optional[typer.FileText] = typer.Option(
-        None, "-f", "--file", help="File to check"
-    ),
+    file: Optional[Path] = typer.Option(None, "-f", "--file", help="File to check"),
     list_languages: bool = typer.Option(
         False, "--list", is_eager=True, help="print all available languages and exit"
     ),
@@ -46,8 +49,12 @@ def check(
         input_text = text
         input_name = "the text"
     elif file:
-        input_text = file.read()
-        input_name = f"{file.name}"
+        if file.suffix.lower() == ".docx":  # handle docx files
+            input_text = docx_to_text(file)
+        else:
+            with open(file, "r", encoding="utf-8") as f:
+                input_text = f.read()
+        input_name = file.name
     else:
         console.print("[yellow]Reading from stdin (Ctrl+D to finish)...[/yellow]")
         input_text = typer.get_text_stream("stdin").read()
