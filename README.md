@@ -3,14 +3,15 @@
 [LanguageTool](https://languagetool.org/?force_language=1) is a great service to find and correct grammatical errors and spelling mistakes.   
 It's open source, has a free plan and also comes as a CLI that can run locally.  
 Althougth the command's output is detailed and complete, it lacks colors and a simpler display.  
-This project uses [Rich](https://github.com/Textualize/rich) to print the report of the [LanguageTool](https://github.com/languagetool-org/languagetool) command line report into a simple table with colors.
+This project uses [Rich](https://github.com/Textualize/rich) to print [LanguageTool](https://github.com/languagetool-org/languagetool) command line report into a simple table with colors.
 
-Use it to check the errors on your text using LanguageTool cli locally.
+Use it to check the errors on your text using LanguageTool in the terminal and locally.
 
 ## Dependencies:
 - python > 3.12
 - Rich
 - Typer
+- python-docx
 
 ## Installation
 
@@ -95,9 +96,10 @@ pp-languagetool -l en-US -t "This is a baadly sppelled sentnse"
 ```
 If you don't provide either -f or -t, you will be prompted to enter text in the terminal. Once done, exit with ctrl-D to let languagetool check the text
 
-> [!NOTE] Currently only supports plain text file types that are allowed by LanguageTool cli (.txt, .md, ...). 
->
-> TODO: add support (conversion) for text files like .docx to be passed directly to the command and be processed internally.
+
+> [!NOTE] 
+> Currently only supports plain text file types that are allowed by LanguageTool cli (.txt, .md, ...). 
+
 
 ## Credits
 
