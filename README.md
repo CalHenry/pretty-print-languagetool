@@ -86,16 +86,21 @@ uv tool install -e .
 - with a text file (plain text or .docx)
 
 ```sh
-pp-languagetool -l en-US -f <my_file.txt>
+pp-languagetool -l <lang> -f <my_file.txt>
 ```
 
-- using the -t options
+- using the -t option
 
 ```sh
 pp-languagetool -l en-US -t "This is a baadly sppelled sentnse"
 ```
 If you don't provide either -f or -t, you can enter text directly as stdin. Once done, exit with ctrl-D to let languagetool check the text.
 
+![Example of output](images/example.png)
+
 ## Credits
 
 Thanks to [LanguageTool](https://languagetool.org/fr) for the free, open source and local service ([GitHub](https://github.com/languagetool-org))
+
+## 🛡️ License <a name="license"></a>
+Project is distributed under [MIT License](https://github.com/CalHenry/pretty-print-languagetool/blob/main/LICENSE)
