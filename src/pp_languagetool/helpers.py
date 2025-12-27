@@ -19,13 +19,12 @@ def run_languagetool(text: str, language: str) -> dict:
     args:
         text: text to be analysed by languagetool
         language: language of the text
-    returns:
     """
     try:
         # Build offset mapping before sending to languagetool
         offset_map = build_offset_to_line_col_map(text)
 
-        # Run languagetool command
+        # languagetool command
         result = subprocess.run(
             ["languagetool", "-l", language, "--json"],
             input=text,
@@ -88,7 +87,7 @@ def build_offset_to_line_col_map(text: str) -> dict:
 
 
 ####
-def pretty_print_languagetool_report(content):
+def pretty_print_languagetool_report(content: dict):
     # Header
     console.print(
         Panel.fit(
@@ -170,7 +169,7 @@ def pretty_print_languagetool_report(content):
     console.print(table)
 
 
-def docx_to_text(docx_path):
+def docx_to_text(docx_path: str) -> str:
     """
     Convert .docx files (Windows Word 2007+) to plain text
     no support for tables
