@@ -169,7 +169,7 @@ def pretty_print_languagetool_report(content: dict):
     console.print(table)
 
 
-def docx_to_text(docx_path: str) -> str:
+def docx_to_text(docx_path) -> str:
     """
     Convert .docx files (Windows Word 2007+) to plain text
     no support for tables

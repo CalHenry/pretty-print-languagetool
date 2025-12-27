@@ -17,7 +17,7 @@ Use it to check the errors on your text using LanguageTool in the terminal and l
 
 <details>
 <summary>Windows users</summary>
-To install languagetool on Windows, please follow the instructions on the <a href="https://github.com/languagetool-org/languagetool?tab=readme-ov-file">languagetool README</a><br>
+To install languagetool on Windows, please follow the instructions on the <a href="https://github.com/languagetool-org/languagetool?tab=readme-ov-file">languagetool README.</a><br>
 languagetool is build in java and you'll probably need to get:
 <ul>
   <li>java 8 or later</li>
@@ -48,7 +48,7 @@ Unix:
 ```sh
 curl -L https://raw.githubusercontent.com/languagetool-org/languagetool/master/install.sh | sudo bash <options>
 ```
-You can see the options on [languagetool's README](https://github.com/languagetool-org/languagetool?tab=readme-ov-file)
+> You can see the options on [languagetool's README](https://github.com/languagetool-org/languagetool?tab=readme-ov-file)
 
 3. Install as a tool using uv:
 
@@ -83,23 +83,18 @@ uv tool install -e .
 ``` 
 
 ## Usage
-- with a plain text file (.md works)
+- with a text file (plain text or .docx)
 
 ```sh
 pp-languagetool -l en-US -f <my_file.txt>
 ```
 
-- with stdin text or using the -t options
+- using the -t options
 
 ```sh
 pp-languagetool -l en-US -t "This is a baadly sppelled sentnse"
 ```
-If you don't provide either -f or -t, you will be prompted to enter text in the terminal. Once done, exit with ctrl-D to let languagetool check the text
-
-
-> [!NOTE] 
-> Currently only supports plain text file types that are allowed by LanguageTool cli (.txt, .md, ...). 
-
+If you don't provide either -f or -t, you can enter text directly as stdin. Once done, exit with ctrl-D to let languagetool check the text.
 
 ## Credits
 
