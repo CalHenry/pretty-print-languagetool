@@ -101,7 +101,7 @@ Example of the table and the colors:
 
 ## Credits
 
-Thanks to [LanguageTool](https://languagetool.org/fr) for the free, open source and local service ([GitHub](https://github.com/languagetool-org))
+Thanks to [LanguageTool](https://languagetool.org) for the free, open source and local service ([GitHub](https://github.com/languagetool-org))
 
 ## 🛡️ License <a name="license"></a>
 Project is distributed under [MIT License](https://github.com/CalHenry/pretty-print-languagetool/blob/main/LICENSE)
