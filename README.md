@@ -18,7 +18,7 @@ Use it to check the errors on your text using LanguageTool in the terminal and l
 <details>
 <summary>Windows users</summary>
 To install languagetool on Windows, please follow the instructions on the <a href="https://github.com/languagetool-org/languagetool?tab=readme-ov-file">languagetool README.</a><br>
-languagetool is build in java and you'll probably need to get:
+languagetool is build in java, and you'll probably need to get:
 <ul>
   <li>java 8 or later</li>
   <li><a href="https://internal1.languagetool.org/snapshots/">languagetool snapshots</a></li>
@@ -28,7 +28,7 @@ languagetool is build in java and you'll probably need to get:
 
 1. Install [**uv**](https://docs.astral.sh/uv/):
 
-Macos: Homebrew
+macOS: Homebrew
 ```sh
 brew install uv 
 ```
@@ -39,7 +39,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
  
 2. Install [languagetool](https://github.com/languagetool-org/languagetool?tab=readme-ov-file):
 
-Macos: Homebrew
+macOS: Homebrew
 ```sh
 brew install languagetool
 ```
@@ -96,6 +96,7 @@ pp-languagetool -l en-US -t "This is a baadly sppelled sentnse"
 ```
 If you don't provide either -f or -t, you can enter text directly as stdin. Once done, exit with ctrl-D to let languagetool check the text.
 
+Example of the table and the colors:
 ![Example of output](images/example.png)
 
 ## Credits
